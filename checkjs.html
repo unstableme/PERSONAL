@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="portfolio.css" />
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar content -->
+            <ul class="sidebar-menu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills </a></li>
+                <li><a href="#projects">Projects </a></li>
+                <li><a href="#hobby">Hobby</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <!-- Add other sections -->
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div id="about" class="contentinside">
+                <!-- About content -->
+                <p>About me section content goes here...</p>
+            </div>
+
+            <div id="education" class="contentinside">
+                <!-- Education content -->
+                <p>Education details go here...</p>
+            </div>
+
+            <div id="experience" class="contentinside">
+                <!-- Experience content -->
+                <p>Experience details go here...</p>
+            </div>
+            <!-- Add other sections -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var sidebarLinks = document.querySelectorAll('.sidebar-menu a');
+
+            sidebarLinks.forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    var sectionId = this.getAttribute('href').substring(1); // Get section ID
+                    scrollToSection(sectionId);
+                });
+            });
+        });
+
+        function scrollToSection(sectionId) {
+            var section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    </script>
+</body>
+</html>

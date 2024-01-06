@@ -1,0 +1,357 @@
+ body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+    }
+    a {
+  /* Check for cursor property */
+  cursor: pointer; /* or any other cursor value */
+  text-decoration: none; /* Remove the underline */
+  /* Other styles you may want to apply */
+  color: #333; 
+}
+    .container {
+      display: flex;
+      height: 100vh; 
+    }
+
+    a:hover{
+      color:rgb(50, 85, 182);
+    }
+
+    #sidewala{
+      margin-left: 0%;
+
+    }
+
+    .sidebar {
+      width: 20%;
+      background-color: #f4f4f4;
+      padding: 20px;
+      box-sizing: border-box;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow-y: auto;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-pic {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      margin-left: 10%;
+    }
+
+    .sidebar-menu {
+      list-style-type: none;
+      padding: 0;
+      margin-left: 0%;
+    margin-right: 20%;
+    }
+
+    .sidebar-menu li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar-menu li a {
+      text-decoration: none;
+      color: #333;
+      display: block;
+      padding: 8px 16px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .sidebar-menu li a:hover {
+      background-color: #ddd;
+    }
+
+    
+  
+    .main-content {
+  margin-left: auto;
+  
+  width: 80%;
+ 
+  z-index: 0;
+  background-color: #17202A; /* Navy blue color */
+  color: white; /* Adjust text color for better readability */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.contentinside{
+  margin-top: 3%;
+  margin-left: 15%;
+}
+
+    h1 {
+      font-size: 40px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    /* Media Query for mobile devices */
+    @media screen and (max-width: 768px) {
+      .sidebar {
+        display: none; /* Hide the sidebar by default on smaller screens */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%; /* Adjust the width as needed for mobile view */
+        height: 100%;
+        background-color: #f4f4f4;
+        z-index: 1;
+        overflow-x: hidden;
+        transition: 0.3s;
+        
+      }
+
+      
+
+      .sidebar.show {
+        display: block; /* Show the sidebar when the 'show' class is added */
+      }
+
+      .sidebar-menu {
+        padding-top: 60px; /* Adjust padding to accommodate the fixed navbar */
+        margin-left: 0%;
+    margin-right: 20%;
+      }
+
+      .sidebar-menu li {
+      margin-bottom: 10px;
+    }
+
+      .nav-toggle {
+        display: block;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        cursor: pointer;
+        z-index: 2;
+      }
+
+      .nav-toggle .bar {
+        width: 30px;
+        height: 3px;
+        background-color: #333;
+        margin: 6px 0;
+        transition: 0.4s;
+      }
+
+      .nav-toggle.active .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
+
+      .nav-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav-toggle.active .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+      }
+      .main-content {
+        
+        width: 100%;
+        padding-top: 70px; /* Adjust padding for the fixed navbar and hamburger icon */
+      }
+    }
+    
+    .contentinside {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      
+      text-align: center;
+      
+      margin-left: auto;
+     overflow-y:auto;
+    }
+   /* Add styling for the section titles while scrolling */
+   .section-title {
+      
+      top: 0;
+      background-color: #333; /* Background color for the section titles */
+      color: #16c7df; /* Text color for the section titles */
+      padding: 10px; /* Adjust padding as needed */
+      z-index: 1; /* Ensure it stays above the content */
+      border: 1px solid rgb(70, 64, 64); /* Adding a 1px solid black border */
+      padding-left: 2%;
+      font-size: x-large;
+      
+      
+    }
+
+    /* Hide the title on larger screens */
+    @media screen and (min-width: 769px) {
+      .small-screen-title {
+        display: none;
+      }
+    }
+    @media screen and (max-width: 768px) {
+     
+/* Navbar for small screens */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f4f4f4;
+    padding: 10px 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    height: 7%; /* Ensure the navbar is above the sidebar */
+    
+  }
+
+  .nav-toggle {
+    cursor: pointer;
+    z-index: 4; /* Ensure the toggle icon is above the sidebar */
+  }
+
+  .main-content {
+    padding-top: 50px; /* Adjust content padding to accommodate navbar height */
+  }
+
+  .sidebar {
+    width: 200px;
+    height: 100%;
+    background-color: #f4f4f4;
+    position: fixed;
+    top: 0;
+    left: -200px; /* Initially hide the sidebar off the screen */
+    transition: left 0.3s ease-in-out;
+    z-index: 2; /* Ensure the sidebar is below the navbar */
+  }
+
+  .sidebar.show {
+    left: 0; /* Show the sidebar by setting left position to 0 */
+    z-index: 4; /* Increase z-index when sidebar is opened */
+  }
+  .navbar-title {
+    text-align: center;
+    
+    width: 100%; /* Occupy full width of the navbar */
+    
+  }
+
+
+  #tourButton{
+    margin-top: 40px;
+    
+  }
+
+  #tourButton button{
+    margin-left: 30px;
+    
+  }
+    }
+
+    /* Cursor Blink Animation */
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.typing-animation {
+  display: inline-block; /* Make the container inline */
+  vertical-align: middle; /* Align text and cursor vertically */
+}
+
+.cursor {
+  display: inline-block; /* Make cursor inline */
+  animation: blink 1s infinite; /* Make the cursor blink */
+}
+
+#tourButton {
+      position: relative;
+      bottom: 20px; /* Adjust the distance from the bottom as needed */
+      left: 50%; /* Center horizontally */
+      transform: translateX(-50%); /* Center horizontally */
+      z-index: 2; /* Ensure it appears above other elements */
+      margin-left: 33%;
+      bottom: 30%;
+      
+    }
+
+   
+    #tourButton button {
+  padding: 12px 24px; /* Increase padding for a larger button */
+  font-size: 18px; /* Increase font size for better visibility */
+  border-radius: 8px; /* Apply a rounded border */
+  border: 2px solid #4CAF50; /* Add a border */
+  background-color: #4CAF50; /* Change button background color */
+  color: white; /* Text color */
+  opacity: 1;
+    }
+
+ 
+
+    #tourButton button:hover {
+      cursor: grab;
+  background-color: #024d05; /* Change background color on hover */
+  border-color: #45a049; /* Change border color on hover */
+  color: white; /* Change text color on hover */
+}
+ 
+
+
+.contact-list {
+  list-style: none; /* Remove default bullets */
+  padding: 0; /* Remove default padding */
+  text-align: left !important; /* Align the list content to the left */
+  width: 100%;
+  margin-left: 10%;
+}
+
+.contact-list li {
+  margin-bottom: 40px; /* Increase spacing between each contact */
+  display: flex; /* Use flexbox to align items vertically */
+  align-items: center; /* Align items vertically */
+}
+
+.contact-list li i {
+  margin-right: 15px; /* Add space between icon and text */
+  font-size: 45px; /* Set the icon size */
+}
+
+.contact-list li a {
+  font-size: 18px; /* Set the text size */
+  text-decoration: none; /* Remove underline from links */
+  color: #f1ebeb; /* Change text color */
+}
+
+.contact-list li i:hover,
+.contact-list li a:hover {
+  color: rgb(50, 85, 182); /* Change color on hover */
+}
+
+a.cosmos:hover{
+    color:aqua;
+
+}
+
+.larger-text {
+    font-size: 4em; /* Adjust the font size as needed */
+    font-weight: bold; /* Optionally, make it bold */
+}

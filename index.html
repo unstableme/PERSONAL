@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="your-integrity-hash" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="portfolio.css" />
+  <script>
+
+    function toggleSidebar() {
+      var sidebar = document.querySelector('.sidebar');
+      sidebar.classList.toggle('show');
+      navToggle.classList.toggle('active');}
+      function loadContent(content) {
+      // Replace the content in the main-content div
+      document.querySelector('.main-content').innerHTML = '<h1>' + content + '</h1><p>This is the ' + content + ' content.</p>';
+    }
+
+
+    function animateText() {
+  var textArray = ["Computer Engineer", "Data Scientist", "Web Developer"];
+  var index = 0;
+  var textElement = document.querySelector('.typing-animation');
+  var typingSpeed = 150; // Adjust typing speed (milliseconds)
+
+  function type() {
+    if (index >= textArray.length) {
+      index = 0; // Restart the cycle
+    }
+
+    var text = textArray[index];
+    var charIndex = 0;
+
+    function typeCharacter() {
+      if (charIndex < text.length) {
+        textElement.textContent += text.charAt(charIndex);
+        charIndex++;
+        setTimeout(typeCharacter, typingSpeed);
+      } else {
+        setTimeout(erase, 1000);
+      }
+    }
+
+    typeCharacter();
+  }
+
+  function erase() {
+    var text = textElement.textContent;
+    if (text.length > 0) {
+      textElement.textContent = text.slice(0, -1);
+      setTimeout(erase, 100);
+    } else {
+      index++;
+      setTimeout(type, 500);
+    }
+  }
+
+  type();
+}
+
+
+    // Function to close sidebar when clicking outside
+    document.addEventListener('click', function(event) {
+      var sidebar = document.querySelector('.sidebar');
+      var toggle = document.querySelector('.nav-toggle');
+
+      // Check if the clicked target is not part of the sidebar or toggle icon
+      if (!sidebar.contains(event.target) && !toggle.contains(event.target)) {
+        sidebar.classList.remove('show');
+        toggle.classList.remove('active');
+      }
+    });
+
+
+// Get the button element
+const tourButton = document.querySelector('#tourButton button');
+
+// Add an event listener to the button for the animation
+tourButton.addEventListener('click', function() {
+  // Add the animation class when the button is clicked
+  this.classList.add('animate-takeoff');
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var sidebarLinks = document.querySelectorAll('.sidebar-menu li a');
+
+    sidebarLinks.forEach(function(link) {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+        var sectionId = this.getAttribute('href').substring(1); // Get section ID
+        scrollToSection(sectionId);
+        // Close the sidebar if needed
+        var sidebar = document.querySelector('.sidebar');
+        if (sidebar.classList.contains('show')) {
+          sidebar.classList.remove('show');
+        }
+      });
+    });
+  });
+
+  function scrollToSection(sectionId) {
+  var section = document.getElementById(sectionId);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+
+  </script>
+
+
+</head>
+<body onload="animateText()">
+  
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar content -->
+      <a href="#home" id="sidewala"><b><h2>Santosh Sapkota</h2></b>
+        <img class="profile-pic" src="profile.png" alt="Profile Picture"></a>
+      <ul class="sidebar-menu">
+        <li><a href="#about" onclick="scrollToSection('about')">About</a></li>
+        <li><a href="#education" onclick="scrollToSection('education')">Education</a></li>
+        <!--<li><a href="#experience" onclick="scrollToSection('experience')">Experience</a></li> -->
+        <li><a href="#skills" onclick="scrollToSection('skills')">Skills</a></li>
+        <li><a href="#projects" onclick="scrollToSection('projects')">Projects</a></li>
+        <li><a href="#hobby" onclick="scrollToSection('hobby')">Hobby</a></li>
+        <li><a href="#resume" onclick="scrollToSection('resume')">Resume</a></li>
+        <li><a href="#contact" onclick="scrollToSection('contact')">Contact</a></li>
+        <!-- Add more items with respective onclick events -->
+      </ul>
+    </div>
+
+
+      <!-- Hamburger icon for mobile -->
+    <!-- Navigation bar for small screens -->
+  <div class="navbar">
+    <div class="nav-toggle" onclick="toggleSidebar()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <div class="navbar-title">
+     <a href="#home"> <h2>Santosh Sapkota</h2></a>
+    </div>
+  </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+
+      
+      <div class="contentinside" id="home">
+        <div class="intro-text">
+          <h1>Hi, I am Santosh Sapkota</h1>
+          <h4 style="color: #16c7df;">
+            <p class="typing-animation"></p>|
+            <span class="cursor"></span> <!-- Cursor element -->
+          </h4>
+          <p style="margin-left: 18%; margin-right: 18%;">"Certified Computer Engineer passionate about Data Science and Machine Learning. Proficient in SQL, Python (Pandas, NumPy, Matplotlib, Seaborn), and PowerBI.<br><br> Apart from tech, I enjoy strategic chess and creative hobbies like photography and video editing."</p>
+        </div>
+      </div>
+
+      <!--
+      <div id="tourButton">
+        <button onclick="scrollToSection('about')">Take a Tour</button>
+      </div>
+
+      -->
+
+      <!-- Content Sections -->
+      <div class="section-title"   id="about">About</div>
+      <div  class="contentinside">
+        
+        <!-- About content -->
+        <p style="text-align: left; width: 100%; padding-left: 10%; padding-right: 10%; ">
+          <span class="larger-text">Hello,</span> I'm Santosh Sapkota, a Bachelor of Computer Engineering graduate holding a license in the field with a strong passion for mathematics. Mathematics has been my guiding force, helping me grasp various subjects. Its logical approach has been key to my academic success.
+          <br><br>
+          I specialize in problem-solving and data analysis. Proficient in Python, including libraries like NumPy, Pandas, Matplotlib, Seaborn as well as SQL, HTML, and CSS, I derive insights from data.
+          <br><br>
+          People around call me I have good sense of humour, don't know about that! Maybe, but if you want to see, we must work together, right? So???
+      </p>
+      </div>
+
+      <div class="section-title" id="education">Education</div>
+      <div class="contentinside">
+        <!-- Education content -->
+        <div style="text-align: left; width: 100%; margin: 0 auto;">
+          <ul style="list-style-type: disc; padding-left: 10%;">
+            <li style="margin-bottom: 20px;">
+              <h3 style="margin-bottom: 5px;">Bachelor of Computer Engineering</h3><br>
+              <a href="https://www.cosmoscollege.edu.np/" target="_blank" class="cosmos" style="font-style: italic; margin-top: 0; color: white;">
+                Cosmos College of Management & Technology
+            </a>
+            <p></p>
+            
+              <p style="margin-top: 0;">2018 - 2023</p>
+            </li>
+      
+            <li style="margin-bottom: 20px;">
+              <h3 style="margin-bottom: 5px;">+2 Science</h3>
+              <p style="font-style: italic; margin-top: 0;">National Integrated College</p>
+              <p style="margin-top: 0;">2016 - 2018</p>
+            </li>
+      
+            <li>
+              <h3 style="margin-bottom: 5px;">Secondary Education (1-10)</h3>
+              <p style="font-style: italic; margin-top: 0;">Shree Janapriya Secondary School</p>
+              
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+<!--
+      <div class="section-title" id="experience" >Experience</div>
+      <div class="contentinside">
+          
+          <p style="text-align: left; width: 100%; padding-left: 10%;">Experience details go here...</p>
+      </div>
+      
+-->
+  
+      <div class="section-title" id="skills" >Skills</div>
+      <div class="contentinside" style=" text-align: left; ">
+        <ul style="list-style: none; text-align: left; width: 100%; padding-left: 10%;">
+          <li style="font-weight: 400; font-size: 21px; margin-bottom: 30px;"><b>Languages:</b> Python, SQL, C, C++</li>
+          <li style="font-weight: 400; font-size: 21px; margin-bottom: 30px;"><b>Libraries:</b> NumPy, Pandas, Matplotlib, Seaborn</li>
+          <li style="font-weight: 400; font-size: 21px; margin-bottom: 30px;"><b>Tools & Technologies:</b> Github, PowerBI, MySQL</li>
+          <li style="font-weight: 400; font-size: 21px; margin-bottom: 30px;"><b>Mathematics :</b> Statistics, Probability & Distribution, Algebra, Problem Solving</li>
+        </ul> 
+      </div>
+      
+
+
+      
+
+      <div class="section-title" id="projects" >Projects</div>
+      <div class="contentinside" style="text-align: left;">
+          <!-- Projects content as an unordered list -->
+          <ul style="list-style: disc; padding-left: 10%; padding-right: 10%; font-size: 20px; "> <!-- Apply padding for indentation -->
+              <li>Intelligent Diet Planner - is a website made using the Django framework and trained with a Machine Learning algorithm that provides meal options for users according to their requirements.</li>
+              Github Link: <a href="https://github.com/unstableme/Intelligent_diet_planner" target="_blank" style="color: aquamarine;">Access Here.</a>
+              <br><br>
+              <li>C2C E-Commerce website - enables users to sell & buy goods from other users directly without the involvement of a third party.</li>
+              <!-- Add more list items as needed -->
+          </ul>
+      </div>
+      
+      
+      <div class="section-title" id="hobby">Hobby</div>
+<div class="contentinside" style="text-align: left;">
+  <!-- Hobby content -->
+  <ul style="list-style-type: disc; padding-left: 10%; padding-right: 10%; font-size: 20px;">
+    <li>
+      <strong>Chess Enthusiast:</strong> I find immense joy and strategic stimulation in the game of chess, continually honing my skills and engaging in competitive play.
+    </li>
+    <br>
+    <br>
+    <li>
+      <strong>Research Enthusiast:</strong>I actively engage in researching topics that captivate my curiosity, finding immense fulfillment in exploring diverse subjects and continuously broadening my knowledge base
+    </li>
+    <br>
+    <br>
+    <li>
+      <strong>Video Editing:</strong>Proficient in video editing, I adeptly blend creativity with technical expertise to produce captivating visual narratives. I derive joy from the intricate process of shaping raw footage into compelling and engaging stories.
+    </li>
+    <br>
+    <br>
+    <li>
+      <strong>Photography:</strong> A passionate photographer, I appreciate capturing moments that convey stories and emotions. Through my lens, I strive to create visually compelling and evocative images.
+      Check My photography <a href="https://www.instagram.com/unstableme02" target="_blank" style="color:blueviolet"> Here</a> or <a href="https://www.facebook.com/Unstableme02"  target="_blank" style="color: #16c7df;"> Here</a>. 
+    </li>
+    <br>
+    <br>
+    <li>
+      <strong>Youtube:</strong> I used to edit videos both long and short term content  for youtube and learned a lot during that phase, even though I didn't make money from it. From that lesson, I have opened another channel and which is now monetized and don't want to share it now.
+      Wanna Check my old channel? <a href="https://www.youtube.com/@EARTHIANMOTIVATION/shorts" target="_blank" style="color:blueviolet"> Yes</a> .... <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" style="color: #16c7df;">No</a>
+    </li>
+  </ul>
+</div>
+
+      
+      <div class="section-title" id="resume" >Resume</div>
+      <div class="contentinside">
+        
+        <!-- Resume content -->
+        <p style="text-align: left; width: 100%; padding-left: 10%;">
+          <strong>Access My Resume from </strong> <a href="RESUME_SANTOSH_SAPKOTA.pdf" target="_blank" style="color: aquamarine;">Here</a>
+        
+        </p>
+      </div>
+      
+
+      <div class="section-title" id="contact">Contact</div>
+<div  class="contentinside">
+  
+  <ul class="contact-list" ">
+    <li>
+      <a href="https://www.linkedin.com/in/unstableme02" target="new"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.linkedin.com/in/unstableme02" target="new">LinkedIn</a>
+    </li>
+    <li>
+      <a href="https://github.com/unstableme" target="new"><i class="fab fa-github"></i></a>
+      <a href="https://github.com/unstableme" target="new">GitHub</a>
+    </li>
+    <li>
+      <i class="far fa-envelope"></i>
+      <a href="mailto:your_email@gmail.com" target="_blank">Gmail</a>
+    </li>
+    <li>
+      <a href="https://www.instagram.com/unstableme02/" target="new"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.instagram.com/unstableme02/" target="new">Instagram</a>
+    </li>
+    
+  </ul>
+</div>
+
+    </div>
+    
+  </div>
+
+    
+    
+
+   
+
+    </div>
+    
+  </div>
+  
+</body>
+</html>
