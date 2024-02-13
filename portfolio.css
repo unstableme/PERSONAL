@@ -34,7 +34,7 @@
       position: fixed;
       top: 0;
       left: 0;
-      overflow-y: auto;
+      
       z-index: 1;
       display: flex;
       flex-direction: column;
@@ -354,4 +354,29 @@ a.cosmos:hover{
 .larger-text {
     font-size: 4em; /* Adjust the font size as needed */
     font-weight: bold; /* Optionally, make it bold */
+}
+
+.blog-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.blog {
+  flex: 1 0 30%; /* Adjust the width as needed */
+  margin: 0 1%; /* Adjust the gap between blogs */
+  text-align: center;
+}
+
+.blog img {
+  width: 100%;
+  height: auto;
+}
+
+.blog h3 {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.blog p {
+  font-size: 14px;
 }
